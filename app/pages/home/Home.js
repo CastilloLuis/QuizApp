@@ -1,20 +1,18 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
-import { Col, Row, Grid } from "react-native-easy-grid";
+import { View, ScrollView, Image } from 'react-native';
 import StartButton from '../../components/start-button/StartButton';
 
 export default class Home extends Component {
     render() {
         return (
-           <View>
-               <Grid>
-                   <Row></Row>
-                   <Row>
-                       <StartButton></StartButton>
-                    </Row>
-                    <Row></Row>
-               </Grid>
-           </View>
+                <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', alignSelf: 'stretch', backgroundColor:'rgb(255, 153, 0)'}}>
+                    <Image 
+                        source={require('../../../assets/logo.png')}
+                        style={{ width: 200, height: 200 }}
+                    />
+                    <StartButton modalAction={() => this.props.navigation.navigate('Questions')}></StartButton>
+                </View>
         )
     }
+
 }

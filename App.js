@@ -1,21 +1,30 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { createStackNavigator, createAppContainer } from "react-navigation";
 
 import Home from './app/pages/home/Home';
+import Questions from './app/pages/questions/Questions';
 
-export default class App extends React.Component {
+class App extends React.Component {
   render() {
     return (
-        <Home/>
+        <Routes/>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+const Routes = createStackNavigator({
+  Home: { 
+    screen: Home,
+    navigationOptions: {
+      header: null,
+    }
   },
-});
+  Questions: { 
+    screen: Questions,
+    navigationOptions: {
+      header: null,
+    }
+  }  
+})
+
+export default createAppContainer(Routes);
